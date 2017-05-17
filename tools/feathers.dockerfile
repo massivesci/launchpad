@@ -11,4 +11,4 @@ RUN npm install -q
 # Bundle app source
 COPY . /usr/src/app/
 # Define the runtime command
-CMD ["npm", "run", "serve:development"]
+ENTRYPOINT ./tools/wait-for-it.sh postgres:5432 -- npm run serve:development
